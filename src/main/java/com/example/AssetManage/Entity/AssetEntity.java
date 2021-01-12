@@ -27,6 +27,19 @@ public class AssetEntity {
 	@Column(name = "asset_id")
 	private Long assetID;
 	/**
+	 * Code of Asset
+	 */
+	@Column(name = "asset_code")
+	private String assetCode;
+	public String getAssetCode() {
+		return assetCode;
+	}
+
+	public void setAssetCode(String assetCode) {
+		this.assetCode = assetCode;
+	}
+
+	/**
 	 * Name of Asset
 	 */
 	@Column(name = "asset_name")

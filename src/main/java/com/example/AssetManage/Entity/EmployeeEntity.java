@@ -26,6 +26,11 @@ public class EmployeeEntity {
 	@Column(name = "employee_id")
 	private Long employeeID;
 	/**
+	 * Code of employee
+	 */
+	@Column(name = "employee_code")
+	private String employeeCode;
+	/**
 	 * Name of employee
 	 */
 	@Column(name = "employee_name")

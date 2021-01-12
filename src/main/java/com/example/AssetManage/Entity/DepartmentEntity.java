@@ -25,6 +25,19 @@ public class DepartmentEntity {
 	@Column(name = "department_id")
 	private Long departmentID;
 	/**
+	 * code of department
+	 */
+	@Column(name = "department_code")
+	private String departmentCode;
+	public String getDepartmentCode() {
+		return departmentCode;
+	}
+
+	public void setDepartmentCode(String departmentCode) {
+		this.departmentCode = departmentCode;
+	}
+
+	/**
 	 * Name of department
 	 */
 	@Column(name = "department_name")
