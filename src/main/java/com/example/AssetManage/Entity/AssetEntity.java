@@ -1,7 +1,9 @@
 package com.example.AssetManage.Entity;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,12 +11,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+
+
 
 @Entity
 @Table(name = "asset")
@@ -31,13 +36,6 @@ public class AssetEntity {
 	 */
 	@Column(name = "asset_code")
 	private String assetCode;
-	public String getAssetCode() {
-		return assetCode;
-	}
-
-	public void setAssetCode(String assetCode) {
-		this.assetCode = assetCode;
-	}
 
 	/**
 	 * Name of Asset
@@ -54,10 +52,18 @@ public class AssetEntity {
 	 */
 	@Column(name = "asset_dayexp")
 	private Date assetDayExp;
-	
-	@ManyToOne 
-	@JoinColumn(name = "asset_type_id") 
-	private AssetTypeEntity assetType;
+	/**
+	 * id of AssetType
+	 */
+	@ManyToOne
+	@JoinColumn(name = "asset_type_id")
+	private AssetTypeEntity assetType; 
+
+	/**
+     * List Asset Employee
+     */
+    @OneToMany(mappedBy = "assetID", cascade = CascadeType.ALL)
+    private List<AssetEmployeeEntity> listAssetEmploy;
 	/**
 	 * Flag delete
 	 */
@@ -94,13 +100,27 @@ public class AssetEntity {
 
 	public AssetEntity() {
 	}
+	public List<AssetEmployeeEntity> getListAssetEmploy() {
+		return listAssetEmploy;
+	}
 
+	public void setListAssetEmploy(List<AssetEmployeeEntity> listAssetEmploy) {
+		this.listAssetEmploy = listAssetEmploy;
+	}
 	public Long getAssetID() {
 		return assetID;
 	}
 
 	public void setAssetID(Long assetID) {
 		this.assetID = assetID;
+	}
+
+	public String getAssetCode() {
+		return assetCode;
+	}
+
+	public void setAssetCode(String assetCode) {
+		this.assetCode = assetCode;
 	}
 
 	public String getAssetName() {
@@ -174,7 +194,5 @@ public class AssetEntity {
 	public void setAssetType(AssetTypeEntity assetType) {
 		this.assetType = assetType;
 	}
-
-
 
 }

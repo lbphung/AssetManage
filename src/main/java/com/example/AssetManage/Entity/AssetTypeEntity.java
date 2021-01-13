@@ -31,26 +31,22 @@ public class AssetTypeEntity {
 	/**
 	 * Code of AssetType
 	 */
-	@Column(name = "asset_type_code")	
+	@Column(name = "asset_type_code")
 	private String assetTypeCode;
-
-	public String getAssetTypeCode() {
-		return assetTypeCode;
-	}
-
-	public void setAssetTypeCode(String assetTypeCode) {
-		this.assetTypeCode = assetTypeCode;
-	}
 
 	/**
 	 * Name of AssetType
 	 */
 	@Column(name = "asset_type_name")
 	private String assetTypeName;
-
+	/**
+	 * AssetType
+	 */
 	@OneToMany(mappedBy = "assetType", cascade = CascadeType.ALL)
 	private List<AssetEntity> assets;
-
+	/**
+	 * delete by User
+	 */
 	@Column(name = "is_delete", columnDefinition = "boolean default false")
 	private boolean isDelete;
 
@@ -92,6 +88,14 @@ public class AssetTypeEntity {
 
 	public void setAssetTypeID(Long assetTypeID) {
 		this.assetTypeID = assetTypeID;
+	}
+
+	public String getAssetTypeCode() {
+		return assetTypeCode;
+	}
+
+	public void setAssetTypeCode(String assetTypeCode) {
+		this.assetTypeCode = assetTypeCode;
 	}
 
 	public String getAssetTypeName() {

@@ -1,12 +1,15 @@
 package com.example.AssetManage.Entity;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.CreatedBy;
@@ -15,7 +18,7 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
-@Table(name="department")
+@Table(name = "department")
 public class DepartmentEntity {
 	/**
 	 * ID of department
@@ -29,22 +32,22 @@ public class DepartmentEntity {
 	 */
 	@Column(name = "department_code")
 	private String departmentCode;
-	public String getDepartmentCode() {
-		return departmentCode;
-	}
-
-	public void setDepartmentCode(String departmentCode) {
-		this.departmentCode = departmentCode;
-	}
 
 	/**
 	 * Name of department
 	 */
 	@Column(name = "department_name")
 	private String departmentName;
-	
+	/**
+	 * department
+	 */
+	@OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+	private List<EmployeeEntity> employees;
+	/**
+	 * Flag delete
+	 */
 	@Column(name = "is_delete", columnDefinition = "boolean default false")
-	private boolean isDelete;
+	private boolean isDelete;	
 
 	/**
 	 * Create by User
@@ -73,15 +76,30 @@ public class DepartmentEntity {
 	@LastModifiedDate
 	@Column(name = "update_date", nullable = false)
 	private Date updateDate;
-	
-	public DepartmentEntity() {}
 
+	public DepartmentEntity() {
+	}
+	public List<EmployeeEntity> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List<EmployeeEntity> employees) {
+		this.employees = employees;
+	}
 	public Long getDepartmentID() {
 		return departmentID;
 	}
 
 	public void setDepartmentID(Long departmentID) {
 		this.departmentID = departmentID;
+	}
+
+	public String getDepartmentCode() {
+		return departmentCode;
+	}
+
+	public void setDepartmentCode(String departmentCode) {
+		this.departmentCode = departmentCode;
 	}
 
 	public String getDepartmentName() {
