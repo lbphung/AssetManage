@@ -1,4 +1,4 @@
-package com.example.AssetManage.Entity;
+package com.example.AssetManage.entity;
 
 import java.sql.Date;
 import java.util.List;

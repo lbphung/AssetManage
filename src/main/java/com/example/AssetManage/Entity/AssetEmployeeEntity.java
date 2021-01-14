@@ -1,4 +1,4 @@
-package com.example.AssetManage.Entity;
+package com.example.AssetManage.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -20,6 +20,10 @@ import org.springframework.data.annotation.LastModifiedDate;
 @Entity
 @Table(name = "asset_employee")
 public class AssetEmployeeEntity implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * ID of Asset
 	 */
