@@ -19,8 +19,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
-
-
 @Entity
 @Table(name = "asset")
 public class AssetEntity {
@@ -57,13 +55,13 @@ public class AssetEntity {
 	 */
 	@ManyToOne
 	@JoinColumn(name = "asset_type_id")
-	private AssetTypeEntity assetType; 
+	private AssetTypeEntity assetType;
 
 	/**
-     * List Asset Employee
-     */
-    @OneToMany(mappedBy = "assetID", cascade = CascadeType.ALL)
-    private List<AssetEmployeeEntity> listAssetEmploy;
+	 * List Asset Employee
+	 */
+	@OneToMany(mappedBy = "assetID", cascade = CascadeType.ALL)
+	private List<AssetEmployeeEntity> listAssetEmploy;
 	/**
 	 * Flag delete
 	 */
@@ -100,6 +98,7 @@ public class AssetEntity {
 
 	public AssetEntity() {
 	}
+
 	public List<AssetEmployeeEntity> getListAssetEmploy() {
 		return listAssetEmploy;
 	}
@@ -107,6 +106,7 @@ public class AssetEntity {
 	public void setListAssetEmploy(List<AssetEmployeeEntity> listAssetEmploy) {
 		this.listAssetEmploy = listAssetEmploy;
 	}
+
 	public Long getAssetID() {
 		return assetID;
 	}

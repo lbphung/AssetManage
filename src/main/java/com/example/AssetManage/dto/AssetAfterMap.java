@@ -3,96 +3,95 @@ package com.example.AssetManage.dto;
 import java.sql.Date;
 
 import com.example.AssetManage.entity.AssetEntity;
-import com.example.AssetManage.entity.AssetTypeEntity;
 
 /**
  * @author lb_phung
  *
  */
 public class AssetAfterMap {
+
 	/**
 	 * ID of Asset
 	 */
 
-	private Long assetIDMap;
+	private Long assetID;
 	/**
 	 * Code of Asset
 	 */
 
-	private String assetCodeMap;
+	private String assetCode;
 
 	/**
 	 * Name of Asset
 	 */
 
-	private String assetNameMap;
+	private String assetName;
 	/**
 	 * Price of Asset
 	 */
 
-	private String assetPriceMap;
+	private String assetPrice;
 	/**
 	 * DayExp of Asset
 	 */
 
-	private Date assetDayExpMap;
+	private Date assetDayExp;
 	/**
 	 * id of AssetType
 	 */
 
 	private AssetTypeAfterMap assetTypeMap;
 
-
 	public AssetAfterMap(AssetEntity assetEntity) {
 		super();
-		this.assetIDMap = assetEntity.getAssetID();
-		this.assetCodeMap = assetEntity.getAssetCode();
-		this.assetNameMap = assetEntity.getAssetName();
-		this.assetPriceMap = assetEntity.getAssetPrice();
-		this.assetDayExpMap = assetEntity.getAssetDayExp();
+		this.assetID = assetEntity.getAssetID();
+		this.assetCode = assetEntity.getAssetCode();
+		this.assetName = assetEntity.getAssetName();
+		this.assetPrice = assetEntity.getAssetPrice();
+		this.assetDayExp = assetEntity.getAssetDayExp();
 		AssetTypeAfterMap assetType = new AssetTypeAfterMap(assetEntity.getAssetType());
-		this.assetTypeMap  = assetType;
+		this.assetTypeMap = assetType;
 
 	}
 
-	public Long getAssetIDMap() {
-		return assetIDMap;
+	public Long getAssetID() {
+		return assetID;
 	}
 
-	public void setAssetIDMap(Long assetIDMap) {
-		this.assetIDMap = assetIDMap;
+	public void setAssetID(Long assetID) {
+		this.assetID = assetID;
 	}
 
-	public String getAssetCodeMap() {
-		return assetCodeMap;
+	public String getAssetCode() {
+		return assetCode;
 	}
 
-	public void setAssetCodeMap(String assetCodeMap) {
-		this.assetCodeMap = assetCodeMap;
+	public void setAssetCode(String assetCode) {
+		this.assetCode = assetCode;
 	}
 
-	public String getAssetNameMap() {
-		return assetNameMap;
+	public String getAssetName() {
+		return assetName;
 	}
 
-	public void setAssetNameMap(String assetNameMap) {
-		this.assetNameMap = assetNameMap;
+	public void setAssetName(String assetName) {
+		this.assetName = assetName;
 	}
 
-	public String getAssetPriceMap() {
-		return assetPriceMap;
+	public String getAssetPrice() {
+		return assetPrice;
 	}
 
-	public void setAssetPriceMap(String assetPriceMap) {
-		this.assetPriceMap = assetPriceMap;
+	public void setAssetPrice(String assetPrice) {
+		this.assetPrice = assetPrice;
 	}
 
-	public Date getAssetDayExpMap() {
-		return assetDayExpMap;
+	public Date getAssetDayExp() {
+		return assetDayExp;
 	}
 
-	public void setAssetDayExpMap(Date assetDayExpMap) {
-		this.assetDayExpMap = assetDayExpMap;
+	public void setAssetDayExp(Date assetDayExp) {
+		this.assetDayExp = assetDayExp;
 	}
 
 	public AssetTypeAfterMap getAssetTypeMap() {
@@ -103,5 +102,4 @@ public class AssetAfterMap {
 		this.assetTypeMap = assetTypeMap;
 	}
 
-	
 }// end

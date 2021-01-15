@@ -38,12 +38,7 @@ public class EmployeeEntity {
 	 */
 	@Column(name = "employee_name")
 	private String employeeName;
-	/**
-	 * id of department
-	 */
-	@ManyToOne
-	@JoinColumn(name = "department_id")
-	private DepartmentEntity department;
+	
 	/**
      * List Asset Employee
      */
@@ -82,14 +77,7 @@ public class EmployeeEntity {
 	@Column(name = "update_date", nullable = false)
 	private Date updateDate;
 
-	public DepartmentEntity getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(DepartmentEntity department) {
-		this.department = department;
-	}
-
+	
 	public List<AssetEmployeeEntity> getListAssetEmploy() {
 		return listAssetEmploy;
 	}

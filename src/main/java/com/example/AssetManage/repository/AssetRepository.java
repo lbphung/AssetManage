@@ -8,4 +8,6 @@ import com.example.AssetManage.entity.AssetEntity;
 @Repository
 public interface AssetRepository extends JpaRepository<AssetEntity, Long> {
 
+	AssetEntity save(AssetEntity assetEntity);
+
 }
